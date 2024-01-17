@@ -1,0 +1,7 @@
+#Rename Mac using currently logged in user and serial number
+#Find currently logged in user
+ user=$(id -un)
+#Find Serial number
+serial=$(ioreg -l | grep IOPlatformSerialNumber | cut -d '"' -f4)
+#Change name
+sudo scutil –set ComputerName $user-$serial 
